@@ -1,12 +1,10 @@
 package net.sytes.cantero.firma.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.sun.istack.NotNull;
 import lombok.Data;
-import org.hibernate.annotations.CreationTimestamp;
 import javax.persistence.*;
 import java.util.Date;
-import java.util.Objects;
+
 
 
 @Data
@@ -42,7 +40,8 @@ public class OpenCodeDB {
     private Date reciboFecha;
 
     @Column(name = "reciboPDF")
-    private String reciboPDF;
+    @Lob
+    private byte[] reciboPDF;
 
     @Column(name = "rhId")
     private String rhId;
