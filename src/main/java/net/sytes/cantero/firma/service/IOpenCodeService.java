@@ -4,6 +4,7 @@ import net.sytes.cantero.firma.dao.IOpenCodeDAO;
 import net.sytes.cantero.firma.entity.OpenCodeDB;
 
 import java.util.List;
+import java.util.Map;
 
 public interface IOpenCodeService {
 

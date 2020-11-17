@@ -4,40 +4,48 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import com.sun.istack.NotNull;
 import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
-import org.springframework.data.annotation.CreatedDate;
-
 import javax.persistence.*;
 import java.util.Date;
+import java.util.Objects;
 
-import static javax.persistence.TemporalType.TIMESTAMP;
 
+@Data
 @Entity
 @Table(name = "opencodedb")
-@Data
 public class OpenCodeDB {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "ID")
     private Integer id;
-    private String OPENCODE_ID;
-    private String COMPANY_FISCAL_ID_TYPE;
-    private String COMPANY_FISCAL_ID;
-    private String CONSIGNMENT_ID;
-    @NotNull
-    private String EMPLOYEE_FISCAL_ID_TYPE;
-    @NotNull
-    private String EMPLOYEE_FISCAL_ID;
-    @NotNull
-    private String DOCUMENT_TYPE;
-    //@JsonFormat(pattern="dd-MM-yyyy HH:mm:ss")
-    //@Temporal(TemporalType.DATE)
-    @CreationTimestamp
-    private Date DOCUMENT_DATE;
-    @NotNull
-    private String DOCUMENT_PATH;
-    @NotNull
-    private String ACTION_COLUMN;
-    private String RESULT_COLUMN;
-    private String OPENCODE_RESPONSE_CODE;
-    private String OPENCODE_RESPONSE_DESCRIPTION;
+
+    @Column(name = "empresaDocumentoTipo")
+    private String empresaDocumentoTipo;
+
+    @Column(name = "empresaDocumento")
+    private String empresaDocumento;
+
+    @Column(name = "remesaCod")
+    private String remesaCod;
+
+    @Column(name = "empleadoDocumentoTipo")
+    private String empleadoDocumentoTipo;
+
+    @Column(name = "empleadoDocumento")
+    private String empleadoDocumento;
+
+    @Column(name = "reciboTipo")
+    private String reciboTipo;
+
+    @Temporal(TemporalType.DATE)
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    @Column(name = "reciboFecha")
+    private Date reciboFecha;
+
+    @Column(name = "reciboPDF")
+    private String reciboPDF;
+
+    @Column(name = "rhId")
+    private String rhId;
+
 }
+
